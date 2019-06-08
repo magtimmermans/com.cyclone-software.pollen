@@ -1,0 +1,151 @@
+{
+  "id": "com.cyclone-software.pollen",
+  "version": "1.0.0",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "Pollen"
+  },
+  "description": {
+    "en": "This give you information about Pollen"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": ["homey:manager:geolocation"],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "brandColor": "#E8461D",
+  "contributing": {
+      "donate": {
+          "paypal": {
+              "username": "marceltimmermans"
+          }
+      }
+  },
+  "author": {
+    "name": "Marcel Timmermans",
+    "email": "marcel@timmermans.us"
+  },
+  "capabilities" : {
+    "grass": {
+      "type": "number",
+      "title": {
+          "en": "Grass Index",
+          "nl": "Gras Index"
+      },
+      "getable": true,
+      "setable": false,
+      "units": "(0-5)",
+      "uiComponent": "sensor",
+      "preventInsights": false,
+      "icon": "./drivers/pollen/assets/grass.svg"
+    },
+    "tree": {
+      "type": "number",
+      "title": {
+          "en": "Tree Index",
+          "nl": "Bomen Index"
+      },
+      "getable": true,
+      "setable": false,
+      "units": "(0-5)",
+      "uiComponent": "sensor",
+      "preventInsights": false,
+      "icon": "./drivers/pollen/assets/tree.svg"
+    },
+    "weed": {
+      "type": "number",
+      "title": {
+          "en": "Weed Index",
+          "nl": "Onkruid Index"
+      },
+      "getable": true,
+      "setable": false,
+      "units": "(0-5)",
+      "uiComponent": "sensor",
+      "preventInsights": false,
+      "icon": "./drivers/pollen/assets/weed.svg"
+    },
+    "mgrass": {
+      "type": "number",
+      "title": {
+          "en": "Grass Index Tomorrow",
+          "nl": "Gras Index morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "units": "(0-5)",
+      "uiComponent": "sensor",
+      "preventInsights": false,
+      "icon": "./drivers/pollen/assets/grass.svg"
+    },
+    "mtree": {
+      "type": "number",
+      "title": {
+          "en": "Tree Index Tomorrow",
+          "nl": "Bomen Index morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "units": "(0-5)",
+      "uiComponent": "sensor",
+      "preventInsights": false,
+      "icon": "./drivers/pollen/assets/tree.svg"
+    },
+    "mweed": {
+      "type": "number",
+      "title": {
+          "en": "Weed Index Tomorrow",
+          "nl": "Onkruid Index morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "units": "(0-5)",
+      "uiComponent": "sensor",
+      "preventInsights": false,
+      "icon": "./drivers/pollen/assets/weed.svg"
+    },
+    "lastSeen": {
+      "type": "string",
+      "title": {
+          "en": "Lastseen",
+          "nl": "Laatst gezien"
+      },
+      "getable": true,
+      "setable": false,
+      "preventInsights": true,
+      "icon": "./drivers/pollen/assets/lastseen.svg"
+    }
+  },
+  "drivers": [{
+        "id": "pollen",
+        "name": {
+            "en": "Pollen",
+            "nl": "Pollen"
+        },
+        "images": {
+            "large": "drivers/pollen/assets/images/large.jpg",
+            "small": "drivers/pollen/assets/images/small.jpg"
+        },
+        "class": "other",
+        "capabilities": [
+            "grass","tree","weed","mgrass","mtree","mweed","lastSeen"
+        ],
+        "pair": [
+          {
+              "id": "list_devices",
+              "template": "list_devices",
+              "navigation": {
+                  "next": "add_devices"
+              }
+          },
+          {
+              "id": "add_devices",
+              "template": "add_devices"
+          }
+        ]
+  }]
+}
