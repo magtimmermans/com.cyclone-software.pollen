@@ -1,6 +1,6 @@
 {
   "id": "com.cyclone-software.pollen",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -147,5 +147,131 @@
               "template": "add_devices"
           }
         ]
-  }]
+  }],
+  "flow": {
+    "triggers": [
+      {
+        "id": "grassChange",
+        "title": {
+            "en": "Grass index change",
+            "nl": "Gras index verandert"
+        },
+        "tokens": [
+        {
+          "name": "measure_grass_index",
+          "type": "number",
+          "title": {
+            "en": "Grass Index",
+            "nl": "Gras Index"
+          }
+        }
+        ],
+        "args": [{
+					"name": "ChangedGrassIndex",
+					"type": "device",
+					"filter": "driver_id=pollen"
+				}]
+      },
+      {
+        "id": "treeChange",
+        "title": {
+            "en": "Tree index change",
+            "nl": "Bomen index verandert"
+        },
+        "tokens": [
+        {
+          "name": "measure_tree_index",
+          "type": "number",
+          "title": {
+            "en": "Tree Index",
+            "nl": "Bomen Index"
+          }
+        }
+        ],
+        "args": [{
+					"name": "ChangedTreeIndex",
+					"type": "device",
+					"filter": "driver_id=pollen"
+				}]
+      },
+      {
+        "id": "weedChange",
+        "title": {
+            "en": "Weed index change",
+            "nl": "Onkruid index verandert"
+        },
+        "tokens": [
+        {
+          "name": "measure_weed_index",
+          "type": "number",
+          "title": {
+            "en": "Weed Index",
+            "nl": "Onkruid Index"
+          }
+        }
+        ],
+        "args": [{
+					"name": "ChangedWeedIndex",
+					"type": "device",
+					"filter": "driver_id=pollen"
+				}]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "measure_grass_index",
+        "title": {
+          "en": "Grass index !{{is|isn't}} above",
+          "nl": "Gras Index !{{is|is niet}} hoger"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=pollen"
+          },
+          {
+						"name": "index",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "measure_tree_index",
+        "title": {
+          "en": "Tree index !{{is|isn't}} above",
+          "nl": "Bomen Index !{{is|is niet}} hoger"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=pollen"
+          },
+          {
+						"name": "index",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "measure_weed_index",
+        "title": {
+          "en": "Weed index !{{is|isn't}} above",
+          "nl": "Onkruid Index !{{is|is niet}} hoger"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=pollen"
+          },
+          {
+						"name": "index",
+            "type": "number"
+          }
+        ]
+      }
+    ]
+  }
 }

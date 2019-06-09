@@ -78,6 +78,13 @@ class PollenDev extends Homey.Device {
                 if (li == null) {li=0};
                 if (wi == null) {wi=0};
 
+
+                //triggers
+                if (this.getCapabilityValue('grass') !== gi) { this.driver._triggers.trgGrassChanged.trigger(this, { measure_grass_index: gi }); }
+                if (this.getCapabilityValue('tree') !== ti)  { this.driver._triggers.trgTreeChanged.trigger(this,  { measure_tree_index: ti }); }
+                if (this.getCapabilityValue('weed') !== wi)  { this.driver._triggers.trgWeedChanged.trigger(this,  { measure_weed_index: wi }); }
+                
+
                 this.setCapabilityValue("grass",gi).catch(e => {
                     this.log(`Unable to set grass: ${ e.message }`);
                 });   
@@ -105,6 +112,14 @@ class PollenDev extends Homey.Device {
                 this.setCapabilityValue("mweed",mwi).catch(e => {
                         this.log(`Unable to set mweed: ${ e.message }`);
                 });
+
+
+
+
+
+
+
+
             } catch (error) {
                 this.error(error);
             }

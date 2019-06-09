@@ -31,9 +31,25 @@ class PollenDriver extends Homey.Driver {
 	};
 
     registerFlowCards() {
+
+        this._triggers = {
+			trgGrassChanged: new Homey.FlowCardTriggerDevice('grassChange').register(),
+			trgTreeChanged:  new Homey.FlowCardTriggerDevice('treeChange').register(),
+			trgWeedChanged:  new Homey.FlowCardTriggerDevice('weedChange').register(),
+		};
+
+		this._conditions = {
+			cndGrassAbove: new Homey.FlowCardCondition('measure_grass_index').register().registerRunListener((args, state) => {
+                 return Promise.resolve((this.getCapabilityValue('grass') > args.index));
+			}),
+			cndTreeAbove: new Homey.FlowCardCondition('measure_tree_index').register().registerRunListener((args, state) => {
+                 return Promise.resolve((this.getCapabilityValue('tree') > args.index));
+			}),
+			cndWeedAbove: new Homey.FlowCardCondition('measure_weed_index').register().registerRunListener((args, state) => {
+                 return Promise.resolve((this.getCapabilityValue('weed') > args.index));
+            }),
+		};
     }
-
-
 }
 
 function uuidv4() {
