@@ -127,8 +127,8 @@
             "nl": "Pollen"
         },
         "images": {
-            "large": "drivers/pollen/assets/images/large.png",
-            "small": "drivers/pollen/assets/images/small.png"
+            "large": "/drivers/pollen/assets/images/large.png",
+            "small": "/drivers/pollen/assets/images/small.png"
         },
         "class": "other",
         "capabilities": [
