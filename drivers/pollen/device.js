@@ -81,7 +81,7 @@ class PollenDev extends Homey.Device {
 
                 //triggers
                 if (this.getCapabilityValue('grass') !== gi) { this.driver._triggers.trgGrassChanged.trigger(this, { measure_grass_index: gi }); }
-                if (this.getCapabilityValue('tree') !== ti)  { this.driver._triggers.trgTreeChanged.trigger(this,  { measure_tree_index: ti }); }
+                if (this.getCapabilityValue('tree') !== li)  { this.driver._triggers.trgTreeChanged.trigger(this,  { measure_tree_index: li }); }
                 if (this.getCapabilityValue('weed') !== wi)  { this.driver._triggers.trgWeedChanged.trigger(this,  { measure_weed_index: wi }); }
                 
 
